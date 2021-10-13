@@ -42,12 +42,12 @@ def load_data(mode="train"):
         if "LJ" in hp.data:
             # Parse
             fpaths, text_lengths, texts = [], [], []
-            transcript = os.path.join(hp.data, 'transcript.csv')
+            transcript = os.path.join(hp.data, 'metadata.csv')
             lines = codecs.open(transcript, 'r', 'utf-8').readlines()
             for line in lines:
                 fname, _, text = line.strip().split("|")
 
-                fpath = os.path.join(hp.data, "wavs", fname + ".wav")
+                fpath = os.path.join(hp.data, "wav", fname + ".wav")
                 fpaths.append(fpath)
 
                 text = text_normalize(text) + "E"  # E: EOS
